@@ -29,10 +29,7 @@
       <div class="password-wrapper">
         <input type="password" id="codeInput" placeholder="Whisper the secret date" autocomplete="off" spellcheck="false">
         <button class="toggle-visibility" type="button" id="togglePw" aria-label="Show password">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/>
-            <circle cx="12" cy="12" r="3"/>
-          </svg>
+          <img id="togglePwIcon" src="assets/eye.svg" alt="Show password" width="18" height="18" />
         </button>
       </div>
       <button class="lock-button" onclick="checkCode()">🌙 Unlock Our Love</button>
@@ -48,17 +45,17 @@
       <hr>
 
       <h2>Our Starlit Legacy</h2>
-      <h3>1️⃣ Alaara <span class="heart-symbol">💖</span></h3>
+      <h3><span class="num-badge" aria-hidden="true">1️</span> Alaara <span class="heart-symbol">💖</span></h3>
       <p><strong>Inspired by:</strong> Alam (father)</p>
       <p><strong>Meaning:</strong> A celestial noble, shining with grace</p>
       <p><strong>Connection:</strong> Carries the radiant “Al” from her father’s dignity.</p>
 
-      <h3>2️⃣ Inaaya <span class="heart-symbol">💖</span></h3>
+      <h3><span class="num-badge" aria-hidden="true">2️</span> Inaaya <span class="heart-symbol">💖</span></h3>
       <p><strong>Inspired by:</strong> Lopa + Basharul</p>
       <p><strong>Meaning:</strong> Guided by divine love</p>
       <p><strong>Connection:</strong> A star born from the union of two hearts.</p>
 
-      <h3>3️⃣ Farzan <span class="heart-symbol">💖</span></h3>
+      <h3><span class="num-badge" aria-hidden="true">3️</span> Farzan <span class="heart-symbol">💖</span></h3>
       <p><strong>Inspired by:</strong> Farzana (mother)</p>
       <p><strong>Meaning:</strong> A wise, luminous soul</p>
       <p><strong>Connection:</strong> Reflects her mother’s eternal wisdom.</p>
@@ -100,7 +97,15 @@
       </div>
     </div>
   </div>
-  <div id="toast-container" aria-live="polite" aria-atomic="true"></div>
+  <!-- Custom Popup -->
+  <div id="popupOverlay" class="popup-overlay" aria-hidden="true"></div>
+  <div id="popup" class="popup" role="dialog" aria-modal="true" aria-labelledby="popupTitle" aria-describedby="popupMessage" hidden>
+    <button id="popupClose" class="popup-close" aria-label="Close">×</button>
+    <div class="popup-content">
+      <h3 id="popupTitle">Notification</h3>
+      <p id="popupMessage">Message</p>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
