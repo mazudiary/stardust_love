@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stardust Love Unlocked</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="mediaqueries.css">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body class="locked">
+  <!-- Animated starry background as inline SVG so SMIL animations work -->
+  <svg id="star-bg" viewBox="0 0 800 800" preserveAspectRatio="xMidYMid slice">
+    <circle cx="400" cy="400" r="10" fill="white" opacity="0.8">
+      <animate attributeName="r" values="10;15;10" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="100" cy="100" r="5" fill="white" opacity="0.6">
+      <animate attributeName="r" values="5;8;5" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="700" cy="600" r="8" fill="white" opacity="0.7">
+      <animate attributeName="r" values="8;12;8" dur="2.5s" repeatCount="indefinite"/>
+    </circle>
+  </svg>
+  <div class="container">
+    <h1>✨ Stardust Love Unlocked ✨</h1>
+
+    <div class="lock-container">
+      <div class="keyhole"></div>
+      <div class="password-wrapper">
+        <input type="password" id="codeInput" placeholder="Whisper the secret date" autocomplete="off" spellcheck="false">
+        <button class="toggle-visibility" type="button" id="togglePw" aria-label="Show password">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/>
+            <circle cx="12" cy="12" r="3"/>
+          </svg>
+        </button>
+      </div>
+      <button class="lock-button" onclick="checkCode()">🌙 Unlock Our Love</button>
+      <div class="hint">Hint: The day our stars aligned (dd-mm-yyyy)</div>
+    </div>
+
+    <div class="locked-content" id="lockedContent">
+      <hr>
+      <h2>Constellations of Our Hearts</h2>
+      <p><strong>Father:</strong> Basharul - Alam - Mazu</p>
+      <p><strong>Mother:</strong> Farzana Hossain Lopa</p>
+
+      <hr>
+
+      <h2>Our Starlit Legacy</h2>
+      <h3>1️⃣ Alaara <span class="heart-symbol">💖</span></h3>
+      <p><strong>Inspired by:</strong> Alam (father)</p>
+      <p><strong>Meaning:</strong> A celestial noble, shining with grace</p>
+      <p><strong>Connection:</strong> Carries the radiant “Al” from her father’s dignity.</p>
+
+      <h3>2️⃣ Inaaya <span class="heart-symbol">💖</span></h3>
+      <p><strong>Inspired by:</strong> Lopa + Basharul</p>
+      <p><strong>Meaning:</strong> Guided by divine love</p>
+      <p><strong>Connection:</strong> A star born from the union of two hearts.</p>
+
+      <h3>3️⃣ Farzan <span class="heart-symbol">💖</span></h3>
+      <p><strong>Inspired by:</strong> Farzana (mother)</p>
+      <p><strong>Meaning:</strong> A wise, luminous soul</p>
+      <p><strong>Connection:</strong> Reflects her mother’s eternal wisdom.</p>
+
+      <hr>
+
+      <h2>Our Cosmic Bond</h2>
+      <table>
+        <tr><th>Daughter’s Star</th><th>Inspired by</th><th>Shining Meaning</th></tr>
+        <tr><td>Alaara</td><td>Alam (father)</td><td>Noble grace, echoing father’s light</td></tr>
+        <tr><td>Inaaya</td><td>Lopa + Basharul</td><td>Divine love, uniting both hearts</td></tr>
+        <tr><td>Farzan</td><td>Farzana (mother)</td><td>Wisdom, a glowing legacy</td></tr>
+      </table>
+
+      <hr>
+      <h2>🌌 Our Eternal Story</h2>
+      <blockquote>“A noble star, divinely guided, wise beyond the skies – forever carrying her parents’ love.”</blockquote>
+
+      <div class="diagram-container">
+        <h2>From Our Hearts to Hers</h2>
+        <div style="position: relative; display: flex; justify-content: space-around; flex-wrap: wrap;">
+          <div class="parent" id="father">Basharul - Alam - Mazu <span class="heart-symbol">💖</span></div>
+          <div class="parent" id="mother">Farzana Hossain Lopa <span class="heart-symbol">💖</span></div>
+        </div>
+        <div class="daughter" id="daughter">Alaara Inaaya Farzan <span class="heart-symbol">💖</span></div>
+
+        <svg>
+          <defs>
+            <marker id="arrowhead1" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+              <polygon points="0 0, 10 3.5, 0 7" fill="#ff6f91"/>
+            </marker>
+            <marker id="arrowhead2" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+              <polygon points="0 0, 10 3.5, 0 7" fill="#ffd700"/>
+            </marker>
+          </defs>
+          <path class="arrow" id="arrow1" d="M 200 50 C 200 120, 400 120, 400 200" stroke="#ff6f91" stroke-width="3" fill="transparent" marker-end="url(#arrowhead1)"/>
+          <path class="arrow" id="arrow2" d="M 600 50 C 600 120, 400 120, 400 200" stroke="#ffd700" stroke-width="3" fill="transparent" marker-end="url(#arrowhead2)"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div id="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
