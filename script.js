@@ -105,18 +105,23 @@ style.innerHTML = `
 
 document.head.appendChild(style);
 
-// Adjust SVG paths dynamically for responsiveness
+// Adjust diagram for responsiveness (supports old arrows, no-op for constellation)
 function updateSVGPaths() {
-  const svg = document.querySelector('svg');
   const arrow1 = document.getElementById('arrow1');
   const arrow2 = document.getElementById('arrow2');
-  const container = document.querySelector('.diagram-container');
-  const lockedContent = document.getElementById('lockedContent');
+  const isMobile = window.innerWidth <= 768;
 
-  if (screen.width  <= 768){
-    arrow1.setAttribute('d', `M 320 72 C 220 170, 400 150, 400 220`);
-    arrow2.setAttribute('d', `M 470 72 C 600 170, 400 150, 400 220`);
-  } 
+  if (arrow1 && arrow2) {
+    if (isMobile) {
+      arrow1.setAttribute('d', 'M 320 72 C 220 170, 400 150, 400 220');
+      arrow2.setAttribute('d', 'M 470 72 C 600 170, 400 150, 400 220');
+    } else {
+      // Optional: reset to default desktop curves to ensure consistency
+      arrow1.setAttribute('d', 'M 200 50 C 200 120, 400 120, 400 200');
+      arrow2.setAttribute('d', 'M 600 50 C 600 120, 400 120, 400 200');
+    }
+  }
+  // If using constellation SVG, nothing needed here for now.
 }
 
 window.addEventListener('resize', updateSVGPaths);
