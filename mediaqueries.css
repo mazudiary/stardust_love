@@ -1,6 +1,10 @@
  /* --- Responsive Styles --- */
-@media (max-width: 1024px) 
-    {
+ @media (max-width: 1200px) {
+    .diagram-container { height: 520px; position: relative; }
+    .diagram-container svg { top: 117px; }
+    .daughter { top: 73px; }
+}
+@media (max-width: 1024px) {
     .container {
         padding: clamp(15px, 4vw, 25px);
         margin: 15px;
@@ -25,20 +29,25 @@
 
     .diagram-container {
         padding: clamp(15px, 3vw, 25px);
+        height: 365px; /* fixed height instead of clamp padding */
+        position: relative;
     }
 
-    .parent, .daughter {
+    .parent {
         margin: clamp(8px, 1.5vw, 12px);
     }
 
-    svg {
-        height: clamp(200px, 50vw, 300px); /* Slightly reduced height */
-        width: clamp(200px, 80vw, 300px); /* Added width control */
-        top: clamp(120px, 30vw, 150px); /* Adjusted positioning */
+    .daughter {
+        margin: clamp(8px, 1.5vw, 12px);
+    }
+
+    .diagram-container svg {
+        top: 75px; /* Adjusted positioning */
         left: 0; /* Center alignment */
         transform: translateX(-50%); /* Center SVG horizontally */
         margin-left: 50%; /* Ensure centering */
         }
+    .daughter { top: 115px; }
 }
 
 @media (max-width: 768px) {
@@ -50,7 +59,6 @@
     .container {
         padding: clamp(10px, 3vw, 20px);
         margin: 10px;
-        max-height: clamp(700px, 140vh, 1400px); /* provide more vertical space on mobile */
     }
 
     h1 {
@@ -75,6 +83,8 @@
         font-size: clamp(0.9em, 2.5vw, 1em);
     }
 
+    .toggle-visibility { width: 32px; height: 32px; right: 6px; top:39px;}
+
     .lock-button {
         font-size: clamp(0.8em, 2vw, 0.9em);
         padding: clamp(8px, 1.5vw, 10px) clamp(12px, 2.5vw, 20px);
@@ -97,30 +107,67 @@
         padding: clamp(10px, 2vw, 15px) clamp(15px, 3vw, 20px);
     }
 
-    .parent, .daughter {
+    .parent {
         display: block;
         margin: clamp(15px, 3vw, 20px) auto;
         max-width: 90%;
         text-align: center;
     }
 
-    .diagram-container {
-        padding-bottom: clamp(220px, 60vw, 400px); /* reserve space for absolute SVG */
+
+    .daughter {
+        top: 80px;
     }
 
-    svg {
-        height: clamp(150px, 40vw, 250px); /* Further reduced height */
-        width: clamp(150px, 70vw, 250px); /* Further reduced width */
-        top: clamp(80px, 20vw, 100px); /* Adjusted for smaller layout */
-        left: 0;
+    .diagram-container {
+        height: 312px; /* fixed height for mobile */
+        position: relative;
+    }
+    .diagram-container svg {
+        width: 100%;
+        /* left: 0; */
         transform: translateX(-50%);
         margin-left: 50%;
+        top: 64px;
     }
+
+            
+
+
 
   /* removed invalid CSS attempting to set SVG path 'd' */
 }
+@media (max-width:690px){
+        .diagram-container svg { top: 62px; }
+        .daughter { top: 83px; }
+}
 
-@media (max-width: 480px) {
+@media (max-width:605px){
+        .daughter { top: 79px; }
+}
+@media (max-width:580px){
+    .diagram-container svg { top: 55px; }
+        .daughter { top: 75px; }
+}
+
+@media (max-width:530px){
+        .daughter { top: 68px; }
+}
+
+@media (max-width:490px){
+        .daughter { top: 59px; }
+}
+
+
+@media(max-width: 690px){
+    .toggle-visibility {
+        top:34px;
+        width: 32px;
+        height: 32px;
+    }
+}
+
+@media (max-width: 481px) {
     .container {
         padding: clamp(8px, 2.5vw, 15px);
         margin: 5px;
@@ -154,7 +201,11 @@
         width: clamp(140px, 85vw, 180px);
         font-size: clamp(0.8em, 2vw, 0.9em);
     }
-
+    .toggle-visibility {
+        top:30px;
+        width: 30px;
+        height: 30px;
+    }
     .lock-button {
         font-size: clamp(0.7em, 1.8vw, 0.8em);
         padding: clamp(6px, 1.2vw, 8px) clamp(10px, 2vw, 15px);
@@ -178,24 +229,34 @@
     }
 
     .diagram-container {
-        padding: clamp(10px, 2vw, 15px);
-        padding-bottom: clamp(260px, 80vw, 480px); /* reserve space for absolute SVG */
+        height: 215px; /* fixed height for small phones */
+        position: relative;
     }
+    .diagram-container svg {
+        height: clamp(200px, 50vw, 167px);
+        width: 100%;
+        transform: translateX(-50%);
+        margin-left: 50%;
+        top: 59px;
+    }
+    
 
     .parent, .daughter {
         padding: clamp(8px, 1.5vw, 10px) clamp(10px, 2vw, 15px);
         font-size: clamp(0.8em, 2vw, 0.9em);
     }
 
-    .daughter {
-        top: 117px;
-    }
+    .daughter { top: 55px; }
+}
 
-    svg {
-        left: -268px;
-        transform: translateX(-50%);
-        margin-left: 50%;
-        top: 33px;
-    }
 
+
+@media (max-width:410px){
+        .daughter { top: 51px; }
+}
+
+@media (max-width: 396px) {
+    .daughter { top: 10px; }
+    .diagram-container svg { display: none; }
+    .diagram-container .merge { display: flex; }
 }
