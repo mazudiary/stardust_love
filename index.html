@@ -6,7 +6,7 @@
   <title>Stardust Love Unlocked</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="mediaqueries.css">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/x-icon" href="assets/premii_idiot_faviicon.png">
 </head>
 <body class="locked">
   <!-- Animated starry background as inline SVG so SMIL animations work -->
@@ -45,29 +45,29 @@
       <hr>
 
       <h2>Our Starlit Legacy</h2>
-      <h3><span class="num-badge" aria-hidden="true">1️</span> Alaara <span class="heart-symbol">💖</span></h3>
-      <p><strong>Inspired by:</strong> Alam (father)</p>
-      <p><strong>Meaning:</strong> A celestial noble, shining with grace</p>
-      <p><strong>Connection:</strong> Carries the radiant “Al” from her father’s dignity.</p>
+      <h3><span class="num-badge" aria-hidden="true">1️</span> Farzan <span class="heart-symbol">💖</span></h3>
+      <p><strong>Inspired by:</strong> Farzana (mother)</p>
+      <p><strong>Meaning:</strong> A wise, luminous soul</p>
+      <p><strong>Connection:</strong> Reflects her mother’s eternal wisdom.</p>
 
       <h3><span class="num-badge" aria-hidden="true">2️</span> Inaaya <span class="heart-symbol">💖</span></h3>
       <p><strong>Inspired by:</strong> Lopa + Basharul</p>
       <p><strong>Meaning:</strong> Guided by divine love</p>
       <p><strong>Connection:</strong> A star born from the union of two hearts.</p>
 
-      <h3><span class="num-badge" aria-hidden="true">3️</span> Farzan <span class="heart-symbol">💖</span></h3>
-      <p><strong>Inspired by:</strong> Farzana (mother)</p>
-      <p><strong>Meaning:</strong> A wise, luminous soul</p>
-      <p><strong>Connection:</strong> Reflects her mother’s eternal wisdom.</p>
+      <h3><span class="num-badge" aria-hidden="true">3️</span>   Alaara<span class="heart-symbol">💖</span></h3>
+      <p><strong>Inspired by:</strong> Alam (father)</p>
+      <p><strong>Meaning:</strong> A celestial noble, shining with grace</p>
+      <p><strong>Connection:</strong> Carries the radiant “Al” from her father’s dignity.</p>
 
       <hr>
 
       <h2>Our Cosmic Bond</h2>
       <table>
         <tr><th>Daughter’s Star</th><th>Inspired by</th><th>Shining Meaning</th></tr>
-        <tr><td>Alaara</td><td>Alam (father)</td><td>Noble grace, echoing father’s light</td></tr>
-        <tr><td>Inaaya</td><td>Lopa + Basharul</td><td>Divine love, uniting both hearts</td></tr>
         <tr><td>Farzan</td><td>Farzana (mother)</td><td>Wisdom, a glowing legacy</td></tr>
+        <tr><td>Inaaya</td><td>Lopa + Basharul</td><td>Divine love, uniting both hearts</td></tr>
+        <tr><td>Alaara</td><td>Alam (father)</td><td>Noble grace, echoing father’s light</td></tr>
       </table>
 
       <hr>
@@ -77,22 +77,42 @@
       <div class="diagram-container">
         <h2>From Our Hearts to Hers</h2>
         <div style="position: relative; display: flex; justify-content: space-around; flex-wrap: wrap;">
-          <div class="parent" id="father">Basharul - Alam - Mazu <span class="heart-symbol">💖</span></div>
           <div class="parent" id="mother">Farzana Hossain Lopa <span class="heart-symbol">💖</span></div>
+          <div class="parent" id="father">Basharul - Alam - Mazu <span class="heart-symbol">💖</span></div>
         </div>
-        <div class="daughter" id="daughter">Alaara Inaaya Farzan <span class="heart-symbol">💖</span></div>
+        <!-- Mobile-friendly connector (shown on small screens, hidden on desktop) -->
+        <div class="merge" aria-hidden="true">
+          <span class="dotline"></span>
+          <span class="heart">💞</span>
+          <span class="dotline"></span>
+        </div>
+  <div class="daughter" id="daughter">Farzan Inaaya Alaara <span class="heart-symbol">💖</span></div>
 
-        <svg>
+        <svg id="constellation" class="constellation" viewBox="0 0 800 300" preserveAspectRatio="xMidYMid meet">
           <defs>
-            <marker id="arrowhead1" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
-              <polygon points="0 0, 10 3.5, 0 7" fill="#ff6f91"/>
-            </marker>
-            <marker id="arrowhead2" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
-              <polygon points="0 0, 10 3.5, 0 7" fill="#ffd700"/>
-            </marker>
+            <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur stdDeviation="3" result="blur"/>
+              <feMerge>
+                <feMergeNode in="blur"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
           </defs>
-          <path class="arrow" id="arrow1" d="M 200 50 C 200 120, 400 120, 400 200" stroke="#ff6f91" stroke-width="3" fill="transparent" marker-end="url(#arrowhead1)"/>
-          <path class="arrow" id="arrow2" d="M 600 50 C 600 120, 400 120, 400 200" stroke="#ffd700" stroke-width="3" fill="transparent" marker-end="url(#arrowhead2)"/>
+          <!-- Left beam -->
+          <path class="beam" d="M 200 60 C 300 120, 360 140, 400 200" stroke="#ff6f91" stroke-width="3" fill="none" stroke-dasharray="6 8" filter="url(#softGlow)"/>
+          <!-- Right beam -->
+          <path class="beam" d="M 600 60 C 500 120, 440 140, 400 200" stroke="#ffd700" stroke-width="3" fill="none" stroke-dasharray="6 8" filter="url(#softGlow)"/>
+          <!-- Twinkling stars along beams -->
+          <circle cx="300" cy="120" r="3" fill="#ff6f91" opacity="0.9">
+            <animate attributeName="r" values="2;4;2" dur="2s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="500" cy="120" r="3" fill="#ffd700" opacity="0.9">
+            <animate attributeName="r" values="2;4;2" dur="2.2s" repeatCount="indefinite"/>
+          </circle>
+          <!-- Center star near daughter -->
+          <circle cx="400" cy="200" r="6" fill="#fff5cc" stroke="#ffd700" stroke-width="2" filter="url(#softGlow)">
+            <animate attributeName="r" values="5;7;5" dur="2.5s" repeatCount="indefinite"/>
+          </circle>
         </svg>
       </div>
     </div>
