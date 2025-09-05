@@ -60,7 +60,8 @@ body.locked .container {
 .toggle-visibility {
   position: absolute;
   right: 8px;
-  top: 50%;
+  top: 43px;
+  height: 320px; /* fixed height instead of clamp */
   transform: translateY(-50%);
   width: 36px;
   height: 36px;
@@ -386,6 +387,7 @@ blockquote::before {
   margin: clamp(10px, 2vw, 15px);
   box-shadow: 0 5px 15px rgba(255, 111, 145, 0.3);
   transition: transform 0.3s ease;
+  z-index: 1; /* ensure above diagram svg */
 }
 
 .parent:hover, .daughter:hover {
@@ -396,19 +398,38 @@ blockquote::before {
   background: linear-gradient(45deg, #fff0b3, #ffd700);
   color: #4b1e8e;
   margin-top: clamp(50px, 10vw, 80px);
-  top: 55px;
+  top: 72px;
 }
 
-svg {
+/* Mobile-friendly merge connector */
+.diagram-container .merge {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 10px auto;
+}
+.diagram-container .merge .dotline {
+  width: 35%;
+  height: 0;
+  border-top: 2px dashed #ff6f91;
+  opacity: 0.8;
+}
+.diagram-container .merge .heart {
+  font-size: 1.3rem;
+}
+
+.diagram-container svg {
   position: absolute;
-  top: 158px;
-  left: 45px;
+  top: 130px;
+  left: 0px;
   width: 100%;
   height: clamp(200px, 50vw, 350px);
   overflow: visible;
+  z-index: 0; /* behind labels */
 }
 
-.arrow {
+.diagram-container .arrow {
   stroke-dasharray: 1000;
   stroke-dashoffset: 1000;
   animation: draw 2s forwards;
@@ -416,4 +437,15 @@ svg {
 
 @keyframes draw {
   to { stroke-dashoffset: 0; }
+}
+
+/* Constellation beams styling */
+.diagram-container .constellation .beam {
+  stroke-linecap: round;
+  animation: beamPulse 5s ease-in-out infinite;
+}
+
+@keyframes beamPulse {
+  0%, 100% { stroke-opacity: 0.5; }
+  50% { stroke-opacity: 1; }
 }
